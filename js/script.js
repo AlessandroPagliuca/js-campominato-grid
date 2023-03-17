@@ -61,10 +61,12 @@ function play(e){
 
     /* Da questo punto parte il disegno dei box che andranno
      a formare la nostra grid*/
-    let drawSquare = document.createElement('div');
-    drawSquare.classList.add('drawSquare');
-    drawSquare.style.width = `calc(100% / ${squareForRow})`;
-    drawSquare.style.height = `calc(100% / ${squareForRow})`;
-    c92Playground.appendChild(drawSquare)
-    console.log(c92Playground);
+
+    for(let i = 0; i < squareNumbers; i++){
+        let drawSquare = document.createElement('div');
+        drawSquare.classList.add('drawSquare');
+        drawSquare.style.width = `calc(100% / ${squareForRow})`;
+        drawSquare.style.height = `calc(100% / ${squareForRow})`;
+        c92Playground.appendChild(drawSquare);
+    }
 }
