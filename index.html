@@ -10,6 +10,34 @@
     <title>js-campominato-grid</title>
 </head>
 <body>
+    <div class="c92-wrapper">
+        <header>
+            <div class="container h-100 d-flex justify-content-between align-items-center">
+                <h1>Campo Minato</h1>
+
+                <form id="levelForm">
+                    <label for="level">Level:</label>
+                    <select name="level" id="level">
+                        <option value="easy" selected>Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="Hard">Hard</option>
+                    </select>
+                        <button type="submit">Play</button>
+                </form>
+            </div>
+        </header>
+        <main>
+            <div class="container h-100 d-flex flex-column justify-content-center align-items-center">
+                <div id="c92Playground"></div>
+                <div class="pt-5">
+                    <h3>Il tuo risultato</h3>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p class="container h-100 d-flex  align-items-center">Made with &hearts; by <a href="#"> Boolean</a></p>
+        </footer>
+    </div>
     
 
     <script src="./js/script.js"></script>
