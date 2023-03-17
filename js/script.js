@@ -105,7 +105,7 @@ function getRandomInt(max){
 
 //Generiamo le posizioni casuali delle bombe
 function mineGenerate(){
-    
+    minePositions = [];
     while (minePositions.length < 16) {
        let randomPosition = getRandomInt(squareNumbers);
 
