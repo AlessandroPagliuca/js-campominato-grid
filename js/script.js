@@ -19,3 +19,22 @@ Le validazioni e i controlli possiamo farli anche in un secondo momento.
 
 
 */
+
+
+/* Prendiamo il bottone del form per avere in input
+per avere il livello selezionato dall'utente
+*/
+
+let btnFormlevel = document.getElementById('levelForm');
+btnFormlevel.addEventListener('submit', play);
+
+//Inizio della funzione dove verrà generata la griglia in base al liv scelto
+
+function play(e){
+    e.preventDefault();
+    //prendiamo la scelta in input della difficoltà scelta
+    let level = document.getElementById('level').value;
+    console.log(level);
+    
+
+}
