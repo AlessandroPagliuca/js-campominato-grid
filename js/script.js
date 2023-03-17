@@ -32,9 +32,29 @@ btnFormlevel.addEventListener('submit', play);
 
 function play(e){
     e.preventDefault();
+
     //prendiamo la scelta in input della difficoltà scelta
     let level = document.getElementById('level').value;
     console.log(level);
-    
+    let squareNumbers;
+
+
+    // Inizio switch per dividere i livelli con le rispettive griglie
+    switch(level){
+        case 'easy':
+            squareNumbers = 100;
+            break;
+        case 'medium':
+            squareNumbers = 81;
+            break;
+        case 'hard':
+            squareNumbers = 49;
+            break;
+    }
+    console.log(squareNumbers);
+
+    //Calcoliamo le row in base all difficoltà scelta
+    let squareForRow = Math.sqrt(squareNumbers);
+    console.log(squareForRow);
 
 }
