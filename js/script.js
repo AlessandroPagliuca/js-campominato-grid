@@ -32,6 +32,8 @@ btnFormlevel.addEventListener('submit', play);
 
 function play(e){
     e.preventDefault();
+    const c92Playground = document.getElementById('c92Playground');
+    c92Playground.innerHTML = '';
 
     //prendiamo la scelta in input della difficoltà scelta
     let level = document.getElementById('level').value;
@@ -63,7 +65,6 @@ function play(e){
     drawSquare.classList.add('drawSquare');
     drawSquare.style.width = `calc(100% / ${squareForRow})`;
     drawSquare.style.height = `calc(100% / ${squareForRow})`;
-    const c92Playground = document.getElementById('c92Playground');
     c92Playground.appendChild(drawSquare)
     console.log(c92Playground);
 }
