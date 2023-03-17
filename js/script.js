@@ -28,6 +28,14 @@ per avere il livello selezionato dall'utente
 let btnFormlevel = document.getElementById('levelForm');
 btnFormlevel.addEventListener('submit', play);
 
+
+ /* Da questo punto parte il disegno dei box che andranno
+     a formare la nostra grid*/
+     let minePositions = [];
+     let squareNumbers;
+     let squareForRow;
+
+
 //Inizio della funzione dove verrà generata la griglia in base al liv scelto
 
 function play(e){
@@ -39,7 +47,6 @@ function play(e){
     //prendiamo la scelta in input della difficoltà scelta
     let level = document.getElementById('level').value;
     console.log(level);
-    let squareNumbers;
 
 
     // Inizio switch per dividere i livelli con le rispettive griglie
@@ -57,24 +64,55 @@ function play(e){
     console.log(squareNumbers);
 
     //Calcoliamo le row in base alla difficoltà scelta
-    let squareForRow = Math.sqrt(squareNumbers);
+    squareForRow = Math.sqrt(squareNumbers);
     console.log(squareForRow);
 
-    /* Da questo punto parte il disegno dei box che andranno
-     a formare la nostra grid*/
+    cellGenerate();
 
+    mineGenerate();
+}
+
+//Generiamo le celle
+function cellGenerate(){
     for(let i = 1; i <= squareNumbers; i++){
         let drawSquare = document.createElement('div');
         drawSquare.classList.add('drawSquare');
         drawSquare.style.width = `calc(100% / ${squareForRow})`;
         drawSquare.style.height = `calc(100% / ${squareForRow})`;
         drawSquare.innerText = i;
+
         c92Playground.appendChild(drawSquare);
+        //Aggiungiamo il bg-color con l'evento click sulla casella
         drawSquare.addEventListener('click', bgColor);
         function bgColor(){
             drawSquare.style.backgroundColor = 'green';
+            console.log(drawSquare.innerText);
+            console.log(minePositions.indexOf(parseInt(drawSquare.innerText)));
+
+            //verifichiamo se la casella è una bomba il bg-color è red
+            if( minePositions.indexOf(parseInt(drawSquare.innerText)) != -1 ){
+                drawSquare.style.backgroundColor = 'red';
+
+            }
         }
     }
 
-    
 }
+//Creiamo un array per tenere traccia delle posizioni delle bombe
+function getRandomInt(max){
+   return Math.floor((Math.random() * max) + 1);
+}
+
+//Generiamo le posizioni casuali delle bombe
+function mineGenerate(){
+    
+    while (minePositions.length < 16) {
+       let randomPosition = getRandomInt(squareNumbers);
+
+        if (!minePositions.includes(randomPosition)) {
+            minePositions.push(randomPosition);
+        
+        }
+    } 
+    console.log(minePositions);
+}  
