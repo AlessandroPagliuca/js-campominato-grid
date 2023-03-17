@@ -17,3 +17,9 @@ main{
     height: 500px;
     border: 1px solid black;
 }
+
+.drawSquare{
+    background-color: brown;
+    color: white;
+    border: 1px solid black;
+}

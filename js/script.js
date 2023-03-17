@@ -53,8 +53,17 @@ function play(e){
     }
     console.log(squareNumbers);
 
-    //Calcoliamo le row in base all difficoltà scelta
+    //Calcoliamo le row in base alla difficoltà scelta
     let squareForRow = Math.sqrt(squareNumbers);
     console.log(squareForRow);
 
+    /* Da questo punto parte il disegno dei box che andranno
+     a formare la nostra grid*/
+    let drawSquare = document.createElement('div');
+    drawSquare.classList.add('drawSquare');
+    drawSquare.style.width = `calc(100% / ${squareForRow})`;
+    drawSquare.style.height = `calc(100% / ${squareForRow})`;
+    const c92Playground = document.getElementById('c92Playground');
+    c92Playground.appendChild(drawSquare)
+    console.log(c92Playground);
 }
