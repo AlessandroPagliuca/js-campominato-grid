@@ -22,27 +22,30 @@ Le validazioni e i controlli possiamo farli anche in un secondo momento.
 
 
 /* Prendiamo il bottone del form per avere in input
-per avere il livello selezionato dall'utente
-*/
-
+per avere il livello selezionato dall'utente*/
 let btnFormlevel = document.getElementById('levelForm');
 btnFormlevel.addEventListener('submit', play);
 
 
- /* Da questo punto parte il disegno dei box che andranno
-     a formare la nostra grid*/
-     let minePositions = [];
-     let squareNumbers;
-     let squareForRow;
+//Variabili delle mine, n° box, n° box * row
+let minePositions = [];
+let squareNumbers;
+let squareForRow;
+let score = 1;
 
+
+//Messaggio che cambia al click play
+let messageScore = document.getElementById('messageScore');
+messageScore.innerText = 'Benvenuto su Campo minato';
 
 //Inizio della funzione dove verrà generata la griglia in base al liv scelto
-
 function play(e){
     e.preventDefault();
     const c92Playground = document.getElementById('c92Playground');
     c92Playground.innerHTML = '';
     c92Playground.classList.add('c92Border');
+    messageScore.innerText = `La partita è iniziata, trova le caselle senza le bombe` ;
+
 
     //prendiamo la scelta in input della difficoltà scelta
     let level = document.getElementById('level').value;
@@ -72,7 +75,8 @@ function play(e){
     mineGenerate();
 }
 
-//Generiamo le celle
+/* Da questo punto parte il disegno dei box che andranno
+a formare la nostra grid*/
 function cellGenerate(){
     for(let i = 1; i <= squareNumbers; i++){
         let drawSquare = document.createElement('div');
@@ -84,15 +88,23 @@ function cellGenerate(){
         c92Playground.appendChild(drawSquare);
         //Aggiungiamo il bg-color con l'evento click sulla casella
         drawSquare.addEventListener('click', bgColor);
+        drawSquare.addEventListener('click', () => {
+            score++;
+        });
         function bgColor(){
             drawSquare.style.backgroundColor = 'green';
             console.log(drawSquare.innerText);
             console.log(minePositions.indexOf(parseInt(drawSquare.innerText)));
+            messageScore.innerText = `IL tuo score è: ${score}`;
+
+            //Codice non completo 
+           
+
 
             //verifichiamo se la casella è una bomba il bg-color è red
             if( minePositions.indexOf(parseInt(drawSquare.innerText)) != -1 ){
                 drawSquare.style.backgroundColor = 'red';
-
+                messageScore.innerText = `Hai perso` ;
             }
         }
     }
