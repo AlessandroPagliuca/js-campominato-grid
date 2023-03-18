@@ -111,6 +111,7 @@ function cellGenerate(){
             //verifichiamo se la casella è una bomba il bg-color è red
             if( minePositions.indexOf(parseInt(drawSquare.innerText)) != -1 ){
                 drawSquare.style.backgroundColor = 'red';
+                score -= 1;
                 messageScore.innerText = `Hai perso: ${score}`;
                 messageScore.classList.add('c92messageLose');
                 gameFinish = true;
