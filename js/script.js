@@ -37,7 +37,7 @@ let gameFinish = false;
 
 //Messaggio che cambia al click play
 let messageScore = document.getElementById('messageScore');
-messageScore.innerText = 'Benvenuto su Campo minato';
+messageScore.innerText = 'Benvenuto su Campo minato, premi il tasto Play ';
 
 //Inizio della funzione dove verrà generata la griglia in base al liv scelto
 function play(e){
@@ -47,6 +47,9 @@ function play(e){
     //Reset score quando clicco su play
     score = 1;
     gameFinish = false;
+    //Rimuovo la classe che aggiunge il colore red al messaggio di sconfitta
+    messageScore.classList.remove('c92messageLose');
+
     c92Playground.classList.add('c92Border');
     messageScore.innerText = `La partita è iniziata, trova le caselle senza le bombe` ;
 
@@ -108,7 +111,8 @@ function cellGenerate(){
             //verifichiamo se la casella è una bomba il bg-color è red
             if( minePositions.indexOf(parseInt(drawSquare.innerText)) != -1 ){
                 drawSquare.style.backgroundColor = 'red';
-                messageScore.innerText = `Hai perso` ;
+                messageScore.innerText = `Hai perso: ${score}`;
+                messageScore.classList.add('c92messageLose');
                 gameFinish = true;
             }
         }

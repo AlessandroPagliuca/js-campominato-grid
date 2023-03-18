@@ -9,7 +9,6 @@ footer{
 
 main{
     height: calc(100% - 160px);
-    background-color: aquamarine;
 }
 
 #c92Playground{
@@ -18,10 +17,16 @@ main{
 }
 .c92Border{
     border: 1px solid black;
+    box-shadow: 0rem 0rem 1rem whitesmoke;
+
 }
 .drawSquare{
     color: white;
     border: 1px solid black;
     text-align: center;
     cursor: pointer;
+}
+
+.c92messageLose{
+color: red!important;
 }
