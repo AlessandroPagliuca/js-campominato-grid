@@ -91,12 +91,12 @@ function cellGenerate(){
 
         c92Playground.appendChild(drawSquare);
         //Aggiungiamo il bg-color con l'evento click sulla casella
-        drawSquare.addEventListener('click', bgColor);
+        drawSquare.addEventListener('click', square);
         //Aggiunto il punteggio quando andiamo a cliccare sulla casella
         drawSquare.addEventListener('click', () => {
             score++;
         });
-        function bgColor(){
+        function square(){
             if(gameFinish == true)
             return;
 
