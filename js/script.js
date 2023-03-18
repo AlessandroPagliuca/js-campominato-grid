@@ -37,7 +37,7 @@ let gameFinish = false;
 
 //Messaggio che cambia al click play
 let messageScore = document.getElementById('messageScore');
-messageScore.innerText = 'Benvenuto su Campo minato, premi il tasto Play ';
+messageScore.innerText = 'Welcome to Minefield, press the Play button';
 
 //Inizio della funzione dove verrà generata la griglia in base al liv scelto
 function play(e){
@@ -51,7 +51,7 @@ function play(e){
     messageScore.classList.remove('c92messageLose');
 
     c92Playground.classList.add('c92Border');
-    messageScore.innerText = `La partita è iniziata, trova le caselle senza le bombe` ;
+    messageScore.innerText = `The game has started, find the boxes without the bombs` ;
 
 
     //prendiamo la scelta in input della difficoltà scelta
@@ -106,7 +106,7 @@ function cellGenerate(){
             drawSquare.style.background = 'green';
             console.log(drawSquare.innerText);
             console.log(minePositions.indexOf(parseInt(drawSquare.innerText)));
-            messageScore.innerText = `IL tuo score è: ${score}`;
+            messageScore.innerText = `Your score is: ${score}`;
 
             //verifichiamo se la casella è una bomba il bg-color è red
             if( minePositions.indexOf(parseInt(drawSquare.innerText)) != -1 ){
@@ -117,7 +117,7 @@ function cellGenerate(){
                 drawSquare.innerText = '';
                 drawSquare.appendChild(bomb1);
                 score -= 1;
-                messageScore.innerText = `Hai perso: ${score}`;
+                messageScore.innerText = `You lose: ${score}`;
                 messageScore.classList.add('c92messageLose');
                 gameFinish = true;
             }
