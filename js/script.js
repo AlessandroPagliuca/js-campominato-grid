@@ -88,6 +88,7 @@ function cellGenerate(){
         c92Playground.appendChild(drawSquare);
         //Aggiungiamo il bg-color con l'evento click sulla casella
         drawSquare.addEventListener('click', bgColor);
+        //Aggiunto il punteggio quando andiamo a cliccare sulla casella
         drawSquare.addEventListener('click', () => {
             score++;
         });
@@ -96,10 +97,6 @@ function cellGenerate(){
             console.log(drawSquare.innerText);
             console.log(minePositions.indexOf(parseInt(drawSquare.innerText)));
             messageScore.innerText = `IL tuo score è: ${score}`;
-
-            //Codice non completo 
-           
-
 
             //verifichiamo se la casella è una bomba il bg-color è red
             if( minePositions.indexOf(parseInt(drawSquare.innerText)) != -1 ){
