@@ -26,6 +26,10 @@ main{
     text-align: center;
     cursor: pointer;
 }
+.drawSquare img{
+    width: 100%;
+    height: 100%;
+}
 
 .c92messageLose{
 color: red!important;

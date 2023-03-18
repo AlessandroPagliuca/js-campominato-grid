@@ -93,7 +93,7 @@ function cellGenerate(){
         drawSquare.innerText = i;
 
         c92Playground.appendChild(drawSquare);
-        //Aggiungiamo il bg-color con l'evento click sulla casella
+        //Aggiungiamo square con l'evento click sulla casella
         drawSquare.addEventListener('click', square);
         //Aggiunto il punteggio quando andiamo a cliccare sulla casella
         drawSquare.addEventListener('click', () => {
@@ -103,14 +103,19 @@ function cellGenerate(){
             if(gameFinish == true)
             return;
 
-            drawSquare.style.backgroundColor = 'green';
+            drawSquare.style.background = 'green';
             console.log(drawSquare.innerText);
             console.log(minePositions.indexOf(parseInt(drawSquare.innerText)));
             messageScore.innerText = `IL tuo score è: ${score}`;
 
             //verifichiamo se la casella è una bomba il bg-color è red
             if( minePositions.indexOf(parseInt(drawSquare.innerText)) != -1 ){
-                drawSquare.style.backgroundColor = 'red';
+                drawSquare.style.background = 'red';
+                const bomb1 = document.createElement('img');
+                bomb1.src = './img/bomb1.png';
+                console.log(bomb1);
+                drawSquare.innerText = '';
+                drawSquare.appendChild(bomb1);
                 score -= 1;
                 messageScore.innerText = `Hai perso: ${score}`;
                 messageScore.classList.add('c92messageLose');
