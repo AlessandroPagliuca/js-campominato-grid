@@ -43,6 +43,8 @@ function play(e){
     e.preventDefault();
     const c92Playground = document.getElementById('c92Playground');
     c92Playground.innerHTML = '';
+    //Reset score quando clicco su play
+    score = 1;
     c92Playground.classList.add('c92Border');
     messageScore.innerText = `La partita è iniziata, trova le caselle senza le bombe` ;
 
