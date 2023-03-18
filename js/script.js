@@ -117,7 +117,7 @@ function cellGenerate(){
                 drawSquare.innerText = '';
                 drawSquare.appendChild(bomb1);
                 score -= 1;
-                messageScore.innerText = `You lose: ${score}`;
+                messageScore.innerText = `You lose: ${score} , press play for a new game`;
                 messageScore.classList.add('c92messageLose');
                 gameFinish = true;
             }
