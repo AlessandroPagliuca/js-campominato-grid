@@ -27,11 +27,12 @@ let btnFormlevel = document.getElementById('levelForm');
 btnFormlevel.addEventListener('submit', play);
 
 
-//Variabili delle mine, n° box, n° box * row
+//Variabili delle mine, n° box, n° box * row, score
 let minePositions = [];
 let squareNumbers;
 let squareForRow;
 let score = 1;
+let gameFinish = false;
 
 
 //Messaggio che cambia al click play
@@ -45,6 +46,7 @@ function play(e){
     c92Playground.innerHTML = '';
     //Reset score quando clicco su play
     score = 1;
+    gameFinish = false;
     c92Playground.classList.add('c92Border');
     messageScore.innerText = `La partita è iniziata, trova le caselle senza le bombe` ;
 
@@ -95,6 +97,9 @@ function cellGenerate(){
             score++;
         });
         function bgColor(){
+            if(gameFinish == true)
+            return;
+
             drawSquare.style.backgroundColor = 'green';
             console.log(drawSquare.innerText);
             console.log(minePositions.indexOf(parseInt(drawSquare.innerText)));
@@ -104,6 +109,7 @@ function cellGenerate(){
             if( minePositions.indexOf(parseInt(drawSquare.innerText)) != -1 ){
                 drawSquare.style.backgroundColor = 'red';
                 messageScore.innerText = `Hai perso` ;
+                gameFinish = true;
             }
         }
     }
