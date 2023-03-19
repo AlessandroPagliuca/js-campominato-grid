@@ -120,6 +120,7 @@ function cellGenerate(){
                 messageScore.innerText = `You lose: ${score} , press play for a new game`;
                 messageScore.classList.add('c92messageLose');
                 gameFinish = true;
+                mineShowAll();
             }
         }
     }
@@ -143,3 +144,18 @@ function mineGenerate(){
     } 
     console.log(minePositions);
 }  
+
+function mineShowAll(){
+    let mine = document.querySelectorAll('.drawSquare');
+    for(let i = 0; i < minePositions.length; i++){
+        setTimeout(() => {
+            console.log(minePositions[i] - 1);
+            mine[minePositions[i] - 1].style.background = 'red';
+            mine[minePositions[i] - 1].innerText = '';
+            const bomb2 = document.createElement('img');
+            bomb2.src = './img/bomb1.png';    
+            mine[minePositions[i] - 1].appendChild(bomb2);
+        }, 50 * (i + 1));
+    }
+
+}
