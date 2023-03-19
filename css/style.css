@@ -13,6 +13,7 @@ footer{
 
 main{
     height: calc(100% - 160px);
+    overflow-y: auto;
 }
 
 #c92Playground{
