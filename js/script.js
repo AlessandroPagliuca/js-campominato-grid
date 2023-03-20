@@ -97,17 +97,19 @@ function cellGenerate(){
         drawSquare.addEventListener('click', square);
         //Aggiunto il punteggio quando andiamo a cliccare sulla casella
         drawSquare.addEventListener('click', () => {
+            if(drawSquare = drawSquare.style.background = 'green')
             score++;
         });
         function square(){
             if(gameFinish == true)
             return;
-
             drawSquare.style.background = 'green';
             console.log(drawSquare.innerText);
             console.log(minePositions.indexOf(parseInt(drawSquare.innerText)));
             messageScore.innerText = `Your score is: ${score}`;
-
+            //Completare la verifica se si ha vinto 
+            const scoreWin = squareNumbers - 16;
+            
             //verifichiamo se la casella è una bomba il bg-color è red
             if( minePositions.indexOf(parseInt(drawSquare.innerText)) != -1 ){
                 drawSquare.style.background = 'red';
